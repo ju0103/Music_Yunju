@@ -1,0 +1,40 @@
+<html>
+<body>
+<h1><center>Music List</center></h1>
+<div class="container">
+
+<form action="/member/search_basic" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Search First Name">
+</form>
+
+<table class="table table-striped">
+  <tr>
+     <th>Music Name </th>
+     <th>Music Brand</th>
+     <th>Music Price</th>
+     <th>Music Buy Date</th>
+     <th>Music Producer</th>
+      <th>Music Quantity</th>
+      <th> Update </th>
+  </tr>
+  <tr>
+  {% for music in musics%}
+    <td> {{ music.music_name }} </td>
+    <td> {{ music.music_brand }} </td>
+      <td> {{ music.music_price }} </td>
+      <td> {{ music.music_buy }} </td>
+      <td> {{ music.music_producer }} </td>
+      <td> {{ music.music_quantity }} </td>
+    <td> <a class="btn btn-info" href ="{%url 'update_music' music.id %}" >Update  </a> <td>
+    </tr>
+  {%endfor%}
+</table>
+
+<a class="btn btn-info pull-right" href = "{%url 'add_music' %}"> New Music </a>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</div>
+</body>
+</html>

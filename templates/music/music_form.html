@@ -1,0 +1,26 @@
+<html>
+<body>
+<div class="container">
+<h1> New / Update Music</h1>
+
+<form method="POST">
+  {% csrf_token %}
+    <label>Music Name </label> {{ form.music_name }} </br>
+     <label>Music Brand</label> {{ form.music_brand }} </br>
+     <label>Music Price</label> {{ form.music_price }} </br>
+     <label>Music Buy Date</label> {{ form.music_buy }} </br>
+     <label>Music Producer</label> {{ form.music_producer }} </br>
+      <label>Music Quantity</label> {{ form.music_quantity }} </br>
+  <button class="btn btn-default" type="submit">Save</button>
+  <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button>
+</form>
+
+    {% if music %}
+      <a class="btn btn-danger" href="{%url 'delete_music' music.id %}">Delete</a>
+    {% endif %}
+
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</body>
+</html>
